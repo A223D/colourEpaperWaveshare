@@ -220,8 +220,8 @@ If you upload the sample code that I have provided, your screen will clear itsel
 
 Here are the steps to run my sample code:
 1. The original file that I want to display is called `doraemon.png`. The dithered version of this image is called `ditherDoraemon.png`. Open command line, and type `python imageToArray.py`. This command will convert the image to our pixel data and save it to `imagedata.cpp`. 
-![DoraemonNormal](./doraemon.png)
-![DoraemonDithered](./ditherDoraemon.png)
+![DoraemonNormal](./ePaperTest/doraemon.png)
+![DoraemonDithered](./ePaperTest/ditherDoraemon.png)
 2. Open `epaperTest.ino` in Arduino and upload the program. The program takes quite a while to upload due to the large size of the image data. Open the serial monitor for debugging messages.
 > Note: You will have to close Arduino while rewriting `imagedata.cpp` with the Python script. Arduino gave me errors if I did not restart it or close and reopen `imagedata.cpp` in Arduino after rewriting it.
 3. You will see the screen flash and clear itself to all white. Once that happens, it will start flashing again, and we will be able to see Doraemon appear. Take a look at the Serial monitor to get a sense of when everything happens.
