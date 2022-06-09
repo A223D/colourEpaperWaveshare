@@ -15,7 +15,7 @@ The parts you will need are:
 * An Arduino/other micro-controller with 5-6 wires
 * The WaveShare 7 colour e-ink display **WITH THE PCB**. Please make sure that the module you buy does **NOT** have just a ribbon connector. It should have a plastic connector that looks like this:
 
->**IMAGE of connector**
+![Connector](./epaperTest/epaperconnector.jpeg)
 
 To get the most out of this guide, make sure you are familiar with:
 * The Arduino ecosystem (have basic experience with Arduino, and be familiar with programming it in the Arduino language) 
