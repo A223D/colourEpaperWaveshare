@@ -63,13 +63,13 @@ Here is the initialization workflow we will follow:
 #### 1. Power on sequence/hardware reset (pg 36 of SPD1656 doc)
 According to the text under diagram 9.1, we need to wait 10ms after VDD is stable(basically when Arduino is turned on), and keep reset pin low for atleast 100μs, and then high. Once reset is high, we need to wait for busy pin to be high. After that, we can send initialization commands to the controller. 
 #### 2. PSR Register (0x00)
-Looking at the Command description for this register(pg 21, SPD1656 doc), we see it accepts 2 bytes as data. Its bits are named A~0~ to A~7~ and B~0~ to B~7~.
+Looking at the Command description for this register(pg 21, SPD1656 doc), we see it accepts 2 bytes as data. Its bits are named A<sub>0</sub> to A<sub>7</sub> and B<sub>0</sub> to B<sub>7</sub>.
 > **How to read the description**
 > In the left columns, we can see the "D/C#" column, which tells us if this is a **command** or **data**. If it is 0, we know it's a **command**. If it is 1, it is **data**. What bits will configure what is described in the right most column titled "Description"
 
-Bits A~7~ to A~5~ select the resolution of our display. In my case, this is 640x400, which is not available in the table. However, there is an alternate register for resolution we will use later. So for now, I will stick with 640x480, so A~5~=1, A~6~=0, A~7~=0. If you want to go with 640x320 for example, A~5~=0, A~7~=1, A~6~=0.  A~4~ is reserved, so we can keep it 0. A~3~ is kept 1. The default is 0, but that flips and inverts the image for me. A~2~, A~1~, and A~0~ are left to their default value of 1. So the value that we would transmit is **0010_1111** or **0x2F**.
+Bits A<sub>7</sub> to A<sub>5</sub> select the resolution of our display. In my case, this is 640x400, which is not available in the table. However, there is an alternate register for resolution we will use later. So for now, I will stick with 640x480, so A<sub>5</sub>=1, A<sub>6</sub>=0, A<sub>7</sub>=0. If you want to go with 640x320 for example, A<sub>5</sub>=0, A<sub>7</sub>=1, A<sub>6</sub>=0.  A<sub>4</sub> is reserved, so we can keep it 0. A<sub>3</sub> is kept 1. The default is 0, but that flips and inverts the image for me. A<sub>2</sub>, A<sub>1</sub>, and A<sub>0</sub> are left to their default value of 1. So the value that we would transmit is **0010_1111** or **0x2F**.
 
-For byte B, we will leave everything default. Feel free to edit parameters and mess around. We can only configure B~7~, B~2~, B~1~, and B~0~, which are left to their default values. The value transmitted is therefore **0x00**.
+For byte B, we will leave everything default. Feel free to edit parameters and mess around. We can only configure B<sub>7</sub>, B<sub>2</sub>, B<sub>1</sub>, and B<sub>0</sub>, which are left to their default values. The value transmitted is therefore **0x00**.
 
 #### 3. PWR register (0x01)
 
